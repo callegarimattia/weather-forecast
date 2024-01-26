@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weather Forecast for {{ .City }}</h1>
+    <table>
+        <tr>
+            <th>Date <br> (GMT +00:00)</th>
+            <th>Temperature</th>
+        </tr>
+        {{ range .Forecasts }}
+        <tr>
+            <td>{{ .Date }}</td>
+            <td>{{ .Temperature }}</td>
+        </tr>
+        {{ end }}
+    </table>
+</body>
+</html>
